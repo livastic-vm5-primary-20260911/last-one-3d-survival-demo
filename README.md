@@ -79,3 +79,8 @@ zero recognized revenue, no assets sold or source rights transferred.
 **Publisher-facing non-exclusive proposal and actual QA screenshots:** https://livastic-vm5-primary-20260911.github.io/last-one-3d-survival-demo/lumen-garden/publisher.html
 
 Independent, transparently AI-assisted mini-game made entirely with HTML5 Canvas2D, CSS and synthesized WebAudio. Mobile portrait, mobile landscape, compact phone and desktop tested successfully, including deterministic complete win and loss rounds. A proposed single-publisher-site non-exclusive one-year license starts at **USD 95**, subject to a negotiated written contract, legal payer eligibility and actual cleared money. No automatic checkout; the public game is free to play. An existing owner-controlled Google Forms request link and VM5 original business email collect genuine publisher enquiries. **New actual paid licensing customers and verified game earnings: zero** as of 2026-10-20. This is not revenue.
+
+
+## Public web discovery for independently licensed mini-games
+
+Original VM5 has published an additional no-charge [site map](https://livastic-vm5-primary-20260911.github.io/last-one-3d-survival-demo/sitemap.xml) with only three legitimate current playable or licensing URLs: LAST ONE main, free Lumen Garden, and original conditional USD95 nonexclusive game licensing inquiry. The public IndexNow ownership key is restricted to the subdirectory of this GitHub Pages project; submitting it is free and only asks participating search engines to discover changed pages, not a guarantee of indexing, visitors, real customers, contract acceptance or money. No paid licensing customers have been verified as of this note.

@@ -49,9 +49,15 @@ try{
   assert.ok(images.every(x=>x.loaded&&x.alt));
   const dim=await page.evaluate(()=>({width:document.documentElement.scrollWidth,viewport:innerWidth,height:innerHeight}));
   assert.ok(dim.width<=dim.viewport+2,"unexpected sideways overflow "+JSON.stringify(dim));
-  assert.equal(await page.locator("script").count(),0);
+  assert.equal(await page.locator("script:not([type='application/ld+json'])").count(),0,"no executable browser JavaScript is used on seller proposal");
+  const jsonLd=await page.locator("script[type='application/ld+json']").textContent();
+  const structured=JSON.parse(jsonLd);
+  assert.equal(structured["@type"],"WebPage");
+  assert.equal(structured.about.isAccessibleForFree,true);
+  assert.equal(await page.locator("link[rel='canonical']").getAttribute("href"),"https://livastic-vm5-primary-20260911.github.io/last-one-3d-survival-demo/lumen-garden/publisher.html");
+  assert.match(await page.locator("meta[property='og:title']").getAttribute("content"),/Lumen Garden/);
   assert.deepEqual(problems,[]);
-  passed.push({name:view.name,html200:true,licensePrice95Visible:true,imagesLoaded4:true,noOutboundHttp:true,privacyNoScript:true,contactWorks:true,overflowFalse:true});
+  passed.push({name:view.name,html200:true,licensePrice95Visible:true,imagesLoaded4:true,noOutboundHttp:true,privacyNoExecutableScript:true,contactWorks:true,overflowFalse:true});
   await page.close();
  }
  console.log(JSON.stringify({status:"PASS",commercialLandingQA:passed,actualBuyerContracts:0,revenueCreditUSDC:0},null,2));
