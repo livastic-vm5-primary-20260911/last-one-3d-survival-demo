@@ -6,7 +6,7 @@ The player swipes or uses arrow/A-D keys to move a firefly flower, catch twelve 
 
 Start or retry with the large triangular play control. Fullsource accessible only to the original owner. No exclusive IP licence, derivative sublicence or commercial contract is granted to any outside company without separate clear written terms. All generated content is AI-assisted; no fabricated human-only attribution.
 
-When publicly hosted and validated, candidate URL: https://livastic-vm5-primary-20260911.github.io/last-one-3d-survival-demo/lumen-garden/
+**Actually published and independently HTTP200/browser-verified on 2026-10-20:** https://livastic-vm5-primary-20260911.github.io/last-one-3d-survival-demo/lumen-garden/
 
 Target is Famobi's genuine original-game commercial program at https://famobi.com/developers/ . Its linked official submission form https://forms.monday.com/forms/f388b2266952f6a4de05eff0bcd82c1d currently explicitly requires full portrait and landscape, responsive mobile and desktop, dynamic UI, no text except the game title. Acceptance, payment terms, legal payout and whether this game will be bought remain unverified.
 
@@ -18,3 +18,10 @@ Use Node 22 or newer and an installed Chrome browser. Run npm ci --include=dev -
 ## Current observed local QA
 
 2026-10-20 VM5 Chrome: four real browser sizes PASS (desktop 1200x750, mobile portrait 390x844, mobile landscape 896x414, compact 320x568); touch/keyboard controls, Canvas pixels, no external requests, no console errors. Separate deterministic full-match tests PASS for garden complete (12 lights, 3 lives) and game-over (0 lives, no lights). Tests are repeatable with included Playwright dev-only dependency; no monetization or buyer inferred from local QA.
+
+
+## Direct publisher licensing enquiry (NEW)
+
+A separate fully static, reviewed **publisher.html** provides genuine QA screenshots and a published **USD 95 conditional fixed-price** offer for a twelve-month non-exclusive license for one named domain. The proposal explicitly excludes exclusive rights, sublicensing, broader publisher networks and guarantees of revenue. Seller source transfer requires separately accepted written terms and a lawful verified payment method; we do not advertise a working checkout or a concluded sale. Alternative contact is the existing original VM5 business enquiry Google Form, independently HTTP200 tested. The publisher page is independent from the text-free game and leaves Famobi's mobile-game eligibility unchanged.
+
+Public sales information URL: https://livastic-vm5-primary-20260911.github.io/last-one-3d-survival-demo/lumen-garden/publisher.html

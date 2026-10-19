@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node tests/qa-mobile.mjs && node tests/qa-endings.mjs"
+    "test": "node tests/qa-mobile.mjs && node tests/qa-endings.mjs && node tests/qa-publisher.mjs"
   },
   "keywords": [],
   "author": "",

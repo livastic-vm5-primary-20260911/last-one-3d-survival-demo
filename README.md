@@ -70,3 +70,12 @@ https://nohumans.directory/l/7c5fbe73-5ca . Generator source is public
 and reproducible. The buyer pays for hosted generation and file delivery,
 not exclusivity or hidden IP. As of launch, zero independent purchases,
 zero recognized revenue, no assets sold or source rights transferred.
+
+
+## Lumen Garden — new original browser game & fixed-fee licensing inquiry
+
+**Actual playable on static GitHub Pages:** https://livastic-vm5-primary-20260911.github.io/last-one-3d-survival-demo/lumen-garden/
+
+**Publisher-facing non-exclusive proposal and actual QA screenshots:** https://livastic-vm5-primary-20260911.github.io/last-one-3d-survival-demo/lumen-garden/publisher.html
+
+Independent, transparently AI-assisted mini-game made entirely with HTML5 Canvas2D, CSS and synthesized WebAudio. Mobile portrait, mobile landscape, compact phone and desktop tested successfully, including deterministic complete win and loss rounds. A proposed single-publisher-site non-exclusive one-year license starts at **USD 95**, subject to a negotiated written contract, legal payer eligibility and actual cleared money. No automatic checkout; the public game is free to play. An existing owner-controlled Google Forms request link and VM5 original business email collect genuine publisher enquiries. **New actual paid licensing customers and verified game earnings: zero** as of 2026-10-20. This is not revenue.
