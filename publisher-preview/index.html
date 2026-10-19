@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="./playgama-bridge.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#101b20">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <meta name="description" content="LAST ONE — Original 3D survival browser game">
+  <title>LAST ONE — 3D SURVIVAL ARENA</title>
+  <script type="module" crossorigin src="./assets/index-B0KMaw1l.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CP0rhtbB.css">
+</head>
+<body>
+  <div id="app">
+    <div id="game-view" aria-label="3D game arena"></div>
+    <div class="screen-vignette"></div>
+    <div id="damage-flash"></div>
+    <div id="crosshair" class="hidden"><span class="crosshair-dot"></span><i></i><i></i><i></i><i></i></div>
+    <div id="hit-marker">×</div>
+    <div id="toast-stack"></div>
+
+    <main id="hud" class="hidden">
+      <header class="top-bar">
+        <div class="brand">
+          <span class="brand-mark">✳</span>
+          <span class="brand-name">LAST<span>ONE</span></span>
+          <span class="brand-sub">SURVIVAL ARENA</span>
+        </div>
+        <div class="round-info">
+          <div class="round-indicator"><span class="pulse-dot"></span><span id="round-label">MATCH 01</span></div>
+          <div class="round-separator"></div>
+          <div class="round-main"><span id="zone-phase">ZONE CLOSES IN</span><strong id="zone-timer">00:38</strong></div>
+        </div>
+        <div class="top-right">
+          <div class="survivor-count"><span class="small-label">ALIVE</span><strong id="alive-num">16</strong><span class="small-suffix">/ 16</span></div>
+          <button id="sound-button" class="icon-btn" aria-label="Toggle sound" title="Sound">♫</button>
+          <button id="pause-button" class="icon-btn" aria-label="Pause game" title="Pause (Esc)">Ⅱ</button>
+        </div>
+      </header>
+
+      <div class="left-rail">
+        <div class="micro-label"><span class="marker-line"></span> OBJECTIVE</div>
+        <div class="objective-title">Be the last survivor.</div>
+        <div id="objective-sub" class="objective-sub">Collect supplies and stay inside the safe zone.</div>
+        <div class="rail-stats">
+          <div><span>ELIMINATIONS</span><strong id="kill-num">00</strong></div>
+          <div><span>DAMAGE</span><strong id="damage-num">000</strong></div>
+        </div>
+      </div>
+
+      <div id="kill-feed"></div>
+
+      <div id="zone-warning" class="zone-warning hidden"><span>!</span><div><strong>DANGER · OUTSIDE SAFE ZONE</strong><small>Return to the safe zone</small></div></div>
+
+      <div id="pickup-prompt" class="pickup-prompt hidden">
+        <kbd>E</kbd><div><strong id="pickup-name">SUPPLIES</strong><span id="pickup-description">PICK UP</span></div>
+      </div>
+
+      <section class="bottom-left">
+        <div class="player-pill"><span class="online-dot"></span> TRIBUTE 01 <span class="pill-separator">/</span> YOUR STATUS</div>
+        <div class="status-group">
+          <div class="stat-icon">+</div>
+          <div class="stat-data"><div class="stat-heading"><span>HEALTH</span><strong id="health-num">100 <small>/ 100</small></strong></div><div class="stat-track"><div class="stat-fill health" id="health-fill"></div></div></div>
+        </div>
+        <div class="status-group shield-group">
+          <div class="stat-icon shield-icon">◇</div>
+          <div class="stat-data"><div class="stat-heading"><span>ARMOR</span><strong id="armor-num">50 <small>/ 100</small></strong></div><div class="stat-track"><div class="stat-fill armor" id="armor-fill"></div></div></div>
+        </div>
+        <div class="sprint-row"><span>SPRINT</span><div class="sprint-track"><div id="stamina-fill"></div></div><span id="stamina-num">100%</span></div>
+      </section>
+
+      <section class="bottom-weapon">
+        <div class="weapon-illustration"><div class="weapon-glyph">⌁</div><span>PRIMARY WEAPON</span></div>
+        <div class="weapon-meta"><div class="weapon-kicker"><span class="small-green-dot"></span> EQUIPPED <span class="weapon-class" id="weapon-class">ASSAULT</span></div>
+          <div class="weapon-name" id="weapon-name">VANGUARD AR</div>
+          <div class="ammo-row"><strong id="ammo-current">28</strong><span class="ammo-divider">/</span><span id="ammo-reserve">90</span><span class="ammo-caption">ROUNDS</span></div>
+          <div class="reload-bar"><div id="reload-fill"></div></div>
+          <div class="weapon-hint" id="weapon-hint">LEFT-CLICK SHOOT <span>·</span> R RELOAD</div>
+        </div>
+      </section>
+
+      <aside class="bottom-right">
+        <div class="map-heading"><span>◈</span> TACTICAL MAP <span class="map-coord">SECTOR 07</span></div>
+        <div class="map-outer"><canvas id="minimap" width="210" height="210"></canvas><span class="map-n">N</span></div>
+        <div class="map-footer"><span class="legend-dot self"></span> YOU <span class="legend-dot threat"></span> THREAT <span class="legend-dot safe"></span> ZONE</div>
+      </aside>
+
+      <footer class="control-strip"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> MOVE</span><span><kbd>SHIFT</kbd> SPRINT</span><span><kbd>CLICK</kbd> SHOOT</span><span><kbd>E</kbd> LOOT</span><span><kbd>R</kbd> RELOAD</span><span><kbd>ESC</kbd> PAUSE</span></footer>
+    </main>
+
+    <div id="touch-controls" aria-label="Touch controls">
+      <div class="touch-joystick" id="touch-joystick" aria-label="Move joystick">
+        <div class="touch-knob" id="joystick-knob"></div><span class="touch-stick-label">MOVE</span>
+      </div>
+      <div class="touch-right">
+        <div class="touch-aim" id="touch-aim" aria-label="Aim direction"><span>DRAG TO AIM</span><i>⊕</i></div>
+        <div class="touch-action-strip">
+          <button type="button" id="touch-sprint" class="touch-action" aria-label="Sprint">DASH</button>
+          <button type="button" id="touch-loot" class="touch-action" aria-label="Pick up item">PICK</button>
+          <button type="button" id="touch-reload" class="touch-action" aria-label="Reload weapon">LOAD</button>
+          <button type="button" id="touch-fire" class="touch-action touch-fire" aria-label="Fire weapon">FIRE</button>
+        </div>
+      </div>
+    </div>
+
+    <section id="start-screen" class="screen">
+      <div class="screen-noise"></div>
+      <div class="menu-header"><div class="brand"><span class="brand-mark">✳</span><span class="brand-name">LAST<span>ONE</span></span></div><span class="menu-version">BUILD 1.0 <b>·</b> 3D SOLO ARENA</span></div>
+      <div class="menu-main">
+        <div class="eyebrow"><span class="eyebrow-line"></span> 01 / WELCOME TO THE ARENA</div>
+        <h1>ONLY ONE<br><em>SURVIVES.</em></h1>
+        <p class="menu-lead">Sixteen enter the arena. One survives.</p>
+        <p class="menu-sublead">Grab weapons in an abandoned forest. Outlast rivals in the collapsing zone.<br>The final survivor wins.</p>
+        <button id="play-button" class="primary-button"><span>PLAY NOW</span><span class="button-arrow">↗</span></button>
+        <div class="mode-chip"><span class="chip-indicator"></span> SOLO SURVIVAL <span class="chip-line"></span> 1 PLAYER + 15 AI OPPONENTS</div>
+        <div id="best-score" class="best-score">BEST: 0 ELIMINATIONS</div>
+      </div>
+      <div class="menu-bottom">
+        <div class="menu-guide"><span class="guide-number">01</span><div><strong>MOVE</strong><span>W A S D · SHIFT</span></div></div>
+        <div class="menu-guide"><span class="guide-number">02</span><div><strong>FIGHT</strong><span>AIM · TAP TO FIRE</span></div></div>
+        <div class="menu-guide"><span class="guide-number">03</span><div><strong>SURVIVE</strong><span>E PICKUP · R RELOAD</span></div></div>
+        <div class="menu-mini">NO RESPAWNS. NO SECOND CHANCES.</div>
+      </div>
+      <div class="menu-side-label">THE HUNT BEGINS / 2026</div>
+    </section>
+
+    <section id="pause-screen" class="screen modal-screen hidden">
+      <div class="modal-frame"><div class="eyebrow"><span class="eyebrow-line"></span> MATCH PAUSED</div><h2>PAUSED</h2><p>Return when you are ready.</p><button id="resume-button" class="primary-button"><span>RESUME GAME</span><span class="button-arrow">→</span></button><button id="quit-button" class="secondary-button">MAIN MENU</button><small>Press Escape to return.</small></div>
+    </section>
+
+    <section id="result-screen" class="screen modal-screen hidden">
+      <div class="modal-frame result-frame"><div class="eyebrow" id="result-eyebrow"><span class="eyebrow-line"></span> MATCH COMPLETE</div><div class="result-symbol" id="result-symbol">✳</div><h2 id="result-title">VICTORY</h2><p id="result-detail">You are the last survivor.</p>
+        <div class="result-stats"><div><span>ELIMINATIONS</span><strong id="result-kills">0</strong></div><div><span>DAMAGE DEALT</span><strong id="result-damage">0</strong></div><div><span>SURVIVAL TIME</span><strong id="result-time">00:00</strong></div></div>
+        <button id="restart-button" class="primary-button"><span>TRY AGAIN</span><span class="button-arrow">↗</span></button><button id="result-menu-button" class="secondary-button">메인 메뉴</button></div>
+    </section>
+  </div>
+</body>
+</html>

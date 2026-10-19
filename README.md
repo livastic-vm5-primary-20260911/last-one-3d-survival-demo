@@ -39,3 +39,19 @@ The game may have been developed with AI assistance. Only rights actually held
 and transferable by the owner are available; third-party components such as
 Three.js are subject to their own open-source licenses.
 Source availability does not imply a commercial license or purchase.
+
+
+## Playgama publisher-candidate mobile build (NOT approved)
+
+Mobile-input + SDK-compatible **test preview** (not a published Playgama
+game; no verified ads or earnings):
+
+https://livastic-vm5-primary-20260911.github.io/last-one-3d-survival-demo/publisher-preview/
+
+Separate from the original public desktop edition. Actual Chrome SwiftShader
+QA passed on desktop, landscape touch and portrait touch: keyboard/joystick
+movement, shooting ammo expenditure, pause/resume, WebGL canvas and Bridge
+mock initialization. The SDK is bundled locally with no extra analytics or
+fonts CDN. A real publisher-hosted ad, save persistence or platform moderation
+has NOT been demonstrated. All original project source stays private. The
+business/legal individual payout onboarding has NOT been completed.
