@@ -55,3 +55,18 @@ mock initialization. The SDK is bundled locally with no extra analytics or
 fonts CDN. A real publisher-hosted ad, save persistence or platform moderation
 has NOT been demonstrated. All original project source stays private. The
 business/legal individual payout onboarding has NOT been completed.
+
+## Real x402 digital model generation (not an accepted customer order)
+
+An original deterministic low-poly GLB generator now has its own machine-readable
+x402 product, independently deployed on the original VM5 merchant. A normal
+GET to https://vm5-openapi-x402.onrender.com/v1/generate-lowpoly obtains an
+unpaid HTTP 402 with the native Base Circle USDC 0.05 quote; a paid response
+requires a real independent wallet EIP-3009 authorization and successfully
+settled payment. The free sample is at
+https://vm5-openapi-x402.onrender.com/v1/lowpoly-sample and the original
+no-cost new buyer discovery listing is
+https://nohumans.directory/l/7c5fbe73-5ca . Generator source is public
+and reproducible. The buyer pays for hosted generation and file delivery,
+not exclusivity or hidden IP. As of launch, zero independent purchases,
+zero recognized revenue, no assets sold or source rights transferred.
