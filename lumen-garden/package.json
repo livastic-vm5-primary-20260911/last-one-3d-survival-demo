@@ -1,0 +1,20 @@
+{
+  "name": "lumen-garden-arcade",
+  "version": "1.0.0",
+  "description": "An original, AI-assisted, dependency-free Canvas2D one-touch arcade game authored by VM5 Delivery Lab for a truthful external HTML5 publisher review. This is NOT an awarded commission or proven commercial sale.",
+  "main": "game.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node tests/qa-mobile.mjs && node tests/qa-endings.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "playwright-core": "^1.64.1"
+  }
+}
